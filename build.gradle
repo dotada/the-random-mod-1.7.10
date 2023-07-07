@@ -1,3 +1,5 @@
+import org.gradle.internal.jvm.Jvm
+
 buildscript {
 	repositories {
 		mavenCentral()
@@ -57,9 +59,7 @@ tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
 }
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-compileJava.options.bootClasspath = org.gradle.internal.jvm.Jvm.current().getJre().getHomeDir().toString() +"/lib/rt.jar"
+compileJava.options.bootClasspath = Jvm.current().getJre().getHomeDir().toString() +"/lib/rt.jar"
 
 repositories {
 	/* Optional other repo's, not needed for the below listed optional dependencies
@@ -118,7 +118,7 @@ processResources {
 		expand 'version':project.version, 'mcversion':project.minecraft.version
 	}
 
-	// copy everything else, thats not the mcmod.info
+	// copy everything else, that's not the mcmod.info
 	from(sourceSets.main.resources.srcDirs) {
 		exclude 'mcmod.info'
 	}

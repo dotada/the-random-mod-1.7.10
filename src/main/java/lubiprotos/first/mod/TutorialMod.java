@@ -2,9 +2,7 @@ package lubiprotos.first.mod;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
-
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -99,57 +97,41 @@ public void preInit(FMLPreInitializationEvent event) {
     	
     @EventHandler 
     public void init(FMLInitializationEvent event) {
-    	//Proxy, TIleENtity, entity, GUI and packet registering
-    	GameRegistry.addRecipe(new ItemStack(itemCHEESE), new Object[] {
-                " s ",
+    	//Proxy, TileEntity, entity, GUI and packet registering
+    	GameRegistry.addRecipe(new ItemStack(itemCHEESE), " s ",
                 " m ",
-                "   ", 's', Items.stick, 'm', Items.milk_bucket
-        });
+                "   ", 's', Items.stick, 'm', Items.milk_bucket);
     	
-    	GameRegistry.addRecipe(new ItemStack(itemUranium), new Object[] {
-                " s ",
+    	GameRegistry.addRecipe(new ItemStack(itemUranium), " s ",
                 " w ",
-                "   ", 's', Items.sugar, 'w', Items.wheat
-    	});
+                "   ", 's', Items.sugar, 'w', Items.wheat);
     	
     	
     	
-        GameRegistry.addRecipe(new ItemStack(itemRC), new Object[] {
-        		" w ",
-        		" c ",
-        		"   ", 'w', this.itemUranium, 'c', this.itemCHEESE
-        });
+        GameRegistry.addRecipe(new ItemStack(itemRC), " w ",
+                " c ",
+                "   ", 'w', itemUranium, 'c', itemCHEESE);
         
         
-        GameRegistry.addRecipe(new ItemStack(itemSC), new Object[] {
-        		" c ",
-        		" t ",
-        		"   ", 'c', this.itemCHEESE, 't', this.itemTube
-        });
+        GameRegistry.addRecipe(new ItemStack(itemSC), " c ",
+                " t ",
+                "   ", 'c', itemCHEESE, 't', itemTube);
         
-        GameRegistry.addRecipe(new ItemStack(itemTube), new Object[] {
-        		"   ",
-        		" p ",
-        		"   ", 'p', this.itemPlastic
-        });
+        GameRegistry.addRecipe(new ItemStack(itemTube), "   ",
+                " p ",
+                "   ", 'p', itemPlastic);
         
-        GameRegistry.addRecipe(new ItemStack(itemPlastic), new Object[] {
-        		" p ",
-        		" c ",
-        		"   ", 'p', Items.blaze_powder, 'c', Items.coal
-        });
+        GameRegistry.addRecipe(new ItemStack(itemPlastic), " p ",
+                " c ",
+                "   ", 'p', Items.blaze_powder, 'c', Items.coal);
         
-        GameRegistry.addRecipe(new ItemStack(blockcheese), new Object[] {
-        		"ccc",
-        		"ccc",
-        		"ccc", 'c', this.itemCHEESE
-        });
+        GameRegistry.addRecipe(new ItemStack(blockcheese), "ccc",
+                "ccc",
+                "ccc", 'c', itemCHEESE);
         
-        GameRegistry.addRecipe(new ItemStack(blockdrugcheeze), new Object[] {
-        		"ccc",
-        		"ccc",
-        		"ccc", 'c', this.itemRC
-        });
+        GameRegistry.addRecipe(new ItemStack(blockdrugcheeze), "ccc",
+                "ccc",
+                "ccc", 'c', itemRC);
         
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBall.class, new RenderBall());
         GameRegistry.registerTileEntity(TileEntityBall.class, "TileBall");
@@ -171,14 +153,11 @@ public void preInit(FMLPreInitializationEvent event) {
     	public Item getTabIconItem() {
     		return new ItemStack(TutorialMod.itemCHEESE).getItem();
     	}
-    	
-    	
-    	
-    	{;
-    	
-    
 
-    	}}    
+    	{
+
+
+        }}
 
 
 
